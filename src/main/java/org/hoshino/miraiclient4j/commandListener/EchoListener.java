@@ -1,14 +1,11 @@
 package org.hoshino.miraiclient4j.commandListener;
 
-import cn.hutool.json.JSONObject;
 import org.hoshino.miraiclient4j.aspect.annotation.CommandListener;
 import org.hoshino.miraiclient4j.aspect.annotation.OnCommand;
 import org.hoshino.miraiclient4j.bot.Bot;
-import org.hoshino.miraiclient4j.message.MessageBuilder;
 import org.hoshino.miraiclient4j.message.MessageChain;
 import org.hoshino.miraiclient4j.message.baseType.Plain;
-import org.hoshino.miraiclient4j.message.messageChainType.MessageEvent;
-import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
+import org.hoshino.miraiclient4j.message.MessageEvent;
 import org.hoshino.miraiclient4j.utils.MessageUtil;
 
 import javax.annotation.Resource;
@@ -19,10 +16,9 @@ public class EchoListener {
     private Bot bot;
 
     @OnCommand(command = "/echo")
-    public void echo(MessageEvent message){
+    public void echo(MessageEvent message) throws Exception {
         String body = MessageUtil.parseBody(message);
-        Long target = MessageUtil.getSenderId(message);
-        FriendMessage friendMessage = MessageBuilder.buildFriendMessage(target, new MessageChain().append(new Plain(body)));
-        bot.sendToFriend(friendMessage);
+        MessageChain messageChain = new MessageChain().append(new Plain(body));
+        bot.send(message, messageChain);
     }
 }

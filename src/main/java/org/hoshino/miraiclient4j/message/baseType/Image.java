@@ -6,7 +6,12 @@ public class Image extends AbstractType implements BaseType {
     private String path;
     private String base64;
 
-    public Image(String imageId,String url, String path, String base64) {
+    public Image(String url) {
+        super.setType("Image");
+        this.url = url;
+    }
+
+    public Image(String imageId, String url, String path, String base64) {
         super.setType("Image");
         this.imageId = imageId;
         this.url = url;

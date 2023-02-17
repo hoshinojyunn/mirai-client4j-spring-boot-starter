@@ -5,10 +5,11 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import org.hoshino.miraiclient4j.adapter.HttpApiClient;
 import org.hoshino.miraiclient4j.bot.Bot;
+import org.hoshino.miraiclient4j.constant.MiraiURL;
 import org.hoshino.miraiclient4j.message.MessageBuilder;
 import org.hoshino.miraiclient4j.message.baseType.Plain;
 import org.hoshino.miraiclient4j.message.baseType.Source;
-import org.hoshino.miraiclient4j.message.messageChainType.MessageEvent;
+import org.hoshino.miraiclient4j.message.MessageEvent;
 import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
 import org.hoshino.miraiclient4j.message.messageRequest.Message;
 import org.hoshino.miraiclient4j.message.MessageChain;
@@ -107,5 +108,13 @@ public class MyTest {
 //        MessageChain teas = new MessageChain().append(new Plain("teas"));
         MessageEvent messageEvent = JSONUtil.toBean(s, MessageEvent.class);
         System.out.println(JSONUtil.toJsonStr(messageEvent));
+        StringBuilder stringBuilder = new StringBuilder();
+    }
+
+    @Test
+    public void test10(){
+        String s = "{\"verifyKey\":\"1234567890\"}";
+        String post = HttpUtil.post(MiraiURL.VERIFY, JSONUtil.toJsonStr(JSONUtil.parseObj(s)));
+        System.out.println(post);
     }
 }

@@ -9,13 +9,14 @@ import org.hoshino.miraiclient4j.constant.MiraiURL;
 import org.hoshino.miraiclient4j.context.ApplicationContextHolder;
 import org.hoshino.miraiclient4j.context.MiraiContext;
 import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.GroupMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.TempMessage;
 import org.hoshino.miraiclient4j.utils.R;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,7 +24,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HttpApiClient implements HttpApi {
+public class HttpApiClient extends HttpApi {
 
     private static class HttpApiUtil {
         private static MiraiContext context;
@@ -32,6 +33,7 @@ public class HttpApiClient implements HttpApi {
             context = ApplicationContextHolder.getBean(MiraiContext.class).orElse(null);
             restTemplate = ApplicationContextHolder.getBean(RestTemplate.class).orElse(null);
         }
+
         public static R<JSONObject> get(String url){
             HashMap<String, Object> params = new HashMap<>();
             params.put("sessionKey", context.getSession());
@@ -74,7 +76,7 @@ public class HttpApiClient implements HttpApi {
     }
     @Override
     public R<JSONObject> getSessionInfo() {
-        return HttpApiUtil.get(MiraiURL.SESSION_INFO_URL);
+        return HttpApiUtil.get(MiraiURL.SESSION_INFO);
     }
 
     @Override
@@ -83,14 +85,14 @@ public class HttpApiClient implements HttpApi {
         params.set("qq", qq);
         MiraiContext context = ApplicationContextHolder.getBean(MiraiContext.class).orElse(null);
         Assert.notNull(context, "release session require the miraiContext must not be null!");
-        R<JSONObject> resp = HttpApiUtil.post(MiraiURL.SESSION_RELEASE_URL, JSONUtil.toJsonStr(params));
+        R<JSONObject> resp = HttpApiUtil.post(MiraiURL.SESSION_RELEASE, JSONUtil.toJsonStr(params));
         context.setSession(null);
         return resp;
     }
 
     @Override
     public R<JSONObject> countMessage() {
-        return HttpApiUtil.get(MiraiURL.COUNT_MESSAGE_URL);
+        return HttpApiUtil.get(MiraiURL.COUNT_MESSAGE);
     }
 
     @Override
@@ -145,7 +147,7 @@ public class HttpApiClient implements HttpApi {
 
     @Override
     public R<JSONObject> friendList() {
-        return HttpApiUtil.get(MiraiURL.FRIEND_LIST_URL);
+        return HttpApiUtil.get(MiraiURL.FRIEND_LIST);
     }
 
     @Override
@@ -174,7 +176,22 @@ public class HttpApiClient implements HttpApi {
     }
 
     @Override
+    public R<JSONObject> userProfile(Long target) {
+        return null;
+    }
+
+    @Override
     public R<JSONObject> sendFriendMessage(FriendMessage message) {
-        return HttpApiUtil.post(MiraiURL.SEND_FRIEND_MESSAGE_URL, JSONUtil.toJsonStr(message));
+        return HttpApiUtil.post(MiraiURL.SEND_FRIEND_MESSAGE, JSONUtil.toJsonStr(message));
+    }
+
+    @Override
+    public R<JSONObject> sendGroupMessage(GroupMessage message) {
+        return HttpApiUtil.post(MiraiURL.SEND_GROUP_MESSAGE, JSONUtil.toJsonStr(message));
+    }
+
+    @Override
+    public R<JSONObject> sendTempMessage(TempMessage message) {
+        return HttpApiUtil.post(MiraiURL.SEND_TEMP_MESSAGE, JSONUtil.toJsonStr(message));
     }
 }

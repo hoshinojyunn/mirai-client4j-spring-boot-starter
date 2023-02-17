@@ -5,13 +5,10 @@ import org.hoshino.miraiclient4j.factory.BotFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
-
-import javax.annotation.Resource;
 
 @Configuration
 @ConditionalOnBean(BotFactory.class)
-public class BotInitConfig {
+public class BotInitConfiguration {
     private BotFactory factory;
 
     @Bean
@@ -19,7 +16,7 @@ public class BotInitConfig {
         return factory.newBot();
     }
 
-    public BotInitConfig(BotFactory factory) {
+    public BotInitConfiguration(BotFactory factory) {
         this.factory = factory;
     }
 }

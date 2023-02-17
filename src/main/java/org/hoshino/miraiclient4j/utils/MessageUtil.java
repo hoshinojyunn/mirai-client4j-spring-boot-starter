@@ -3,7 +3,7 @@ package org.hoshino.miraiclient4j.utils;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import org.hoshino.miraiclient4j.message.messageChainType.MessageEvent;
+import org.hoshino.miraiclient4j.message.MessageEvent;
 
 import java.util.Arrays;
 
@@ -30,10 +30,32 @@ public class MessageUtil {
         return res.toString();
     }
 
+    public static Long getId(MessageEvent messageEvent){
+        String type = messageEvent.getType();
+        Long res = null;
+        switch (type){
+            case "FriendMessage":
+                res = getSenderId(messageEvent);
+                break;
+            case "GroupMessage":
+                res = getGroupId(messageEvent);
+                break;
+            default:
+                break;
+        }
+        return res;
+    }
+
     public static Long getSenderId(MessageEvent messageEvent){
         JSONObject sender = messageEvent.getSender();
         return sender.getLong("id");
     }
+
+    public static Long getGroupId(MessageEvent messageEvent){
+        Integer res = (Integer)messageEvent.getSender().getByPath("group.id");
+        return Long.valueOf(res);
+    }
+
     public static String getSenderNickName(MessageEvent messageEvent){
         JSONObject sender = messageEvent.getSender();
         return sender.getStr("nickname");

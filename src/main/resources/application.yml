@@ -1,14 +1,15 @@
 mirai:
   config:
     qq: 702442896
-    url: localhost:8080
+    mirai-url: localhost:8080
     verifyKey: 1234567890
-    api-adapter: http
+    api-adapter: "http"
 spring:
   application:
     name: mirai-client4j
 server:
   port: 8081
+
 
 
 

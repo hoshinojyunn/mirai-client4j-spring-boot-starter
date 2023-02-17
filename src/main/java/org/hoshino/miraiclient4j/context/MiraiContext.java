@@ -1,32 +1,45 @@
 package org.hoshino.miraiclient4j.context;
 
-import org.hoshino.miraiclient4j.aspect.OnCommandRegister;
+import cn.hutool.http.HttpUtil;
+import cn.hutool.json.JSONUtil;
+import org.hoshino.miraiclient4j.aspect.annotation.CommandListener;
+import org.hoshino.miraiclient4j.aspect.annotation.OnCommand;
+import org.hoshino.miraiclient4j.constant.MiraiURL;
 import org.hoshino.miraiclient4j.properties.MiraiProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.lang.reflect.Method;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
-@EnableConfigurationProperties({MiraiProperties.class})
-@Component
-public class MiraiContext{
-    private final MiraiProperties properties;
+public class MiraiContext {
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     private String verifyKey;
     private String session;
     private Long qq;
     private Map<String, Method>processFunction;
     private Map<Method, Object>processBean;
 
-    public MiraiContext(MiraiProperties properties) {
-        this.properties = properties;
-        verifyKey = this.properties.getVerifyKey();
-        qq = this.properties.getQq();
+    public MiraiContext() {
     }
+
+    public MiraiContext(String verifyKey, String session, Long qq) throws JSONException {
+        this.verifyKey = verifyKey;
+        this.session = session;
+        this.qq = qq;
+    }
+
+
 
     public Optional<Method> findProcessFunction(String cmd){
         return Optional.ofNullable(processFunction.get(cmd));

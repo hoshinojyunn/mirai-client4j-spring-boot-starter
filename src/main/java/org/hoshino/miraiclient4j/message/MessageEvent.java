@@ -1,4 +1,4 @@
-package org.hoshino.miraiclient4j.message.messageChainType;
+package org.hoshino.miraiclient4j.message;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;

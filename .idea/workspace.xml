@@ -4,7 +4,99 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cb52f10-6c6e-42be-86a3-7375704e45c9" name="Changes" comment="" />
+    <list default="true" id="7cb52f10-6c6e-42be-86a3-7375704e45c9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/applicationListener/ApplicationStartedListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/aspect/annotation/EnableCommandProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/aspect/annotation/EnableMiraiClient4j.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/commandListener/ImageListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/ApplicationConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/CommandProcessorSupport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/MiraiContextConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/message/messageRequest/CommonMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/message/messageRequest/GroupMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/message/messageRequest/TempMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/processor/GroupMessageProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/processor/TaskProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/applicationListener/ApplicationStartedListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/aspect/annotation/EnableCommandProcessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/aspect/annotation/EnableMiraiClient4j.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/commandListener/ImageListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/AdapterConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/ApplicationConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/BotInitConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/CommandProcessorSupport.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/MiraiContextConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/ThreadPoolConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/message/messageRequest/CommonMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/message/messageRequest/GroupMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/message/messageRequest/TempMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/processor/GroupMessageProcessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/processor/TaskProxy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/MiraiClient4jApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/MiraiClient4jApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/adapter/HttpApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/adapter/HttpApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/adapter/api/CommonApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/adapter/api/CommonApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/adapter/api/HttpApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/adapter/api/HttpApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/adapter/api/WebSocketApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/applicationListener/ApplicationShutdownListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/applicationListener/ApplicationShutdownListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/aspect/OnCommandRegister.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/bot/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/bot/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/bot/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/bot/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/commandListener/EchoListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/commandListener/EchoListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/AdapterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/AdapterConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/BotInitConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/BotInitConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/MiraiContextConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/ThreadPoolConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/ThreadPoolConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/config/WebConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/constant/MiraiURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/constant/MiraiURL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/context/ApplicationContextHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/context/ApplicationContextHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/context/MiraiContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/context/MiraiContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/message/MessageBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/message/MessageBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/message/baseType/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/message/baseType/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/message/messageChainType/MessageEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/message/MessageEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/processor/FriendMessageProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/processor/FriendMessageProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/processor/MessageProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/processor/MessageProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/processor/Processor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/processor/Processor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/properties/MiraiProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/properties/MiraiProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/utils/MessageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/utils/MessageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/hoshino/miraiclient4j/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/hoshino/miraiclient4j/MyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/MiraiClient4jApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/MiraiClient4jApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/adapter/HttpApiClient$HttpApiUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/adapter/HttpApiClient$HttpApiUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/adapter/HttpApiClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/adapter/HttpApiClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/adapter/api/CommonApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/adapter/api/CommonApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/adapter/api/HttpApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/adapter/api/HttpApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/adapter/api/WebSocketApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/applicationListener/ApplicationShutdownListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/applicationListener/ApplicationShutdownListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/aspect/OnCommandRegister.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/bot/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/bot/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/bot/Bot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/bot/Bot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/commandListener/EchoListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/commandListener/EchoListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/AdapterConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/BotInitConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/MiraiContextConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/ThreadPoolConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/config/WebConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/constant/MiraiURL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/constant/MiraiURL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/context/ApplicationContextHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/context/ApplicationContextHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/context/MiraiContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/context/MiraiContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/controller/MessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/message/MessageBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/message/MessageBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/message/baseType/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/message/baseType/Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/message/messageChainType/MessageEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/message/MessageEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/processor/FriendMessageProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/processor/FriendMessageProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/processor/MessageProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/processor/MessageProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/processor/Processor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/processor/Processor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/properties/MiraiProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/properties/MiraiProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/utils/MessageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hoshino/miraiclient4j/utils/MessageUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/hoshino/miraiclient4j/MyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/hoshino/miraiclient4j/MyTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +159,9 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -75,13 +169,16 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="spring.boot" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyProjects\JavaProjects\mirai-client4j" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.hoshino.miraiclient4j" />
     </key>
@@ -101,7 +198,7 @@
     </treeState>
   </component>
   <component name="RunManager" selected="Spring Boot.start">
-    <configuration name="MyTest.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MyTest.test10" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mirai-client4j" />
       <extension name="coverage">
         <pattern>
@@ -111,7 +208,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.hoshino.miraiclient4j" />
       <option name="MAIN_CLASS_NAME" value="org.hoshino.miraiclient4j.MyTest" />
-      <option name="METHOD_NAME" value="test5" />
+      <option name="METHOD_NAME" value="test10" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -190,20 +287,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.start" />
-      <item itemvalue="JUnit.MyTest.test5" />
       <item itemvalue="JUnit.MyTest.test6" />
       <item itemvalue="JUnit.MyTest.test7" />
       <item itemvalue="JUnit.MyTest.test8" />
       <item itemvalue="JUnit.MyTest.test9" />
+      <item itemvalue="Spring Boot.start" />
+      <item itemvalue="JUnit.MyTest.test10" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MyTest.test8" />
+        <item itemvalue="JUnit.MyTest.test10" />
         <item itemvalue="JUnit.MyTest.test9" />
+        <item itemvalue="JUnit.MyTest.test8" />
         <item itemvalue="JUnit.MyTest.test7" />
         <item itemvalue="JUnit.MyTest.test6" />
-        <item itemvalue="JUnit.MyTest.test5" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +312,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675780021769</updated>
-      <workItem from="1675780023760" duration="84166000" />
+      <workItem from="1675780023760" duration="92562000" />
+      <workItem from="1676549298366" duration="32652000" />
     </task>
     <servers />
   </component>
@@ -225,6 +323,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="74f5599e-2fa8-47d1-800d-5c44768aac11">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -238,7 +361,7 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hoshino/miraiclient4j/adapter/HttpApiClient.java</url>
-          <line>40</line>
+          <line>42</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint type="java-line">

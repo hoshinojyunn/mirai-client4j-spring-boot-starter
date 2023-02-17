@@ -1,10 +1,11 @@
 package org.hoshino.miraiclient4j.bot;
 
-import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.Message;
+import org.hoshino.miraiclient4j.message.MessageChain;
+import org.hoshino.miraiclient4j.message.baseType.BaseType;
+import org.hoshino.miraiclient4j.message.MessageEvent;
 
 public interface Action {
-    void sendToFriend(FriendMessage message);
-//    void sendToGroup(Gro message);
-    void send(Message message);
+
+    void send(MessageEvent event, BaseType... message);
+    void send(MessageEvent event, MessageChain chain);
 }

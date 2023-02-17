@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class AdapterConfig {
+public class AdapterConfiguration {
 
     @Bean
-    @ConditionalOnProperty(prefix = "mirai.config",name = "api-adapter", havingValue = "http")
+    @ConditionalOnProperty(prefix = "mirai.config", name = "api-adapter", havingValue = "http")
     public HttpApiClient httpApiClient(){
         return new HttpApiClient();
     }

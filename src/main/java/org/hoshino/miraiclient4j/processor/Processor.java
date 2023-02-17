@@ -1,6 +1,6 @@
 package org.hoshino.miraiclient4j.processor;
 
-import org.hoshino.miraiclient4j.message.messageChainType.MessageEvent;
+import org.hoshino.miraiclient4j.message.MessageEvent;
 
 @FunctionalInterface
 public interface Processor {

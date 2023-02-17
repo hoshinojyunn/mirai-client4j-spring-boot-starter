@@ -2,7 +2,7 @@ package org.hoshino.miraiclient4j.controller;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import org.hoshino.miraiclient4j.message.messageChainType.MessageEvent;
+import org.hoshino.miraiclient4j.message.MessageEvent;
 import org.hoshino.miraiclient4j.processor.MessageProcessor;
 import org.hoshino.miraiclient4j.utils.R;
 import org.slf4j.Logger;

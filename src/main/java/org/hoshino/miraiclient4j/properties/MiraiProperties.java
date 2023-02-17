@@ -2,19 +2,16 @@ package org.hoshino.miraiclient4j.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @ConfigurationProperties("mirai.config")
 public class MiraiProperties {
-    private String verifyKey;
-    private String url;
-    private Long qq;
-    private String apiAdapter;
+    private String verifyKey = null;
+    private String miraiUrl = "localhost:8081";
+    private Long qq = null;
+    private String apiAdapter = "http";
 
-    public MiraiProperties() {
-        this.verifyKey = null;
-        this.url = "localhost:8081";
-        this.qq = null;
-        this.apiAdapter = "http";
-    }
 
     public String getApiAdapter() {
         return apiAdapter;
@@ -32,12 +29,12 @@ public class MiraiProperties {
         this.qq = qq;
     }
 
-    public String getUrl() {
-        return url;
+    public String getMiraiUrl() {
+        return miraiUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setMiraiUrl(String miraiUrl) {
+        this.miraiUrl = miraiUrl;
     }
 
     public String getVerifyKey() {

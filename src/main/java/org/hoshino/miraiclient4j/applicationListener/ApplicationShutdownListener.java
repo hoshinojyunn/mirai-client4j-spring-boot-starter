@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-@Component
 public class ApplicationShutdownListener implements ApplicationListener<ContextClosedEvent> {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     private HttpApiClient httpApiClient;

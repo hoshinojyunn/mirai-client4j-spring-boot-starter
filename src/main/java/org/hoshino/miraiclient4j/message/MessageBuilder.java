@@ -4,7 +4,10 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import org.hoshino.miraiclient4j.context.ApplicationContextHolder;
 import org.hoshino.miraiclient4j.context.MiraiContext;
+import org.hoshino.miraiclient4j.message.messageRequest.CommonMessage;
 import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.GroupMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.TempMessage;
 import org.springframework.util.Assert;
 
 public class MessageBuilder {
@@ -17,12 +20,30 @@ public class MessageBuilder {
     }
 
     public static FriendMessage buildFriendMessage(long target, MessageChain messages){
-        JSONObject entries = new JSONObject();
-        entries.set("sessionKey", sessionKey);
-        entries.set("target", target);
-        entries.set("messageChain", messages);
-        return JSONUtil.toBean(entries, FriendMessage.class);
+        FriendMessage friendMessage = new FriendMessage(target, messages);
+        friendMessage.setSessionKey(sessionKey);
+        return friendMessage;
     }
+
+    public static GroupMessage buildGroupMessage(long target, MessageChain messages){
+        GroupMessage groupMessage = new GroupMessage(target, messages);
+        groupMessage.setSessionKey(sessionKey);
+        return groupMessage;
+    }
+
+
+    public static CommonMessage buildMessage(long target, MessageChain messages){
+        CommonMessage commonMessage = new CommonMessage(target, messages);
+        commonMessage.setSessionKey(sessionKey);
+        return commonMessage;
+    }
+
+    public static TempMessage buildTempMessage(Long target, MessageChain messages){
+        TempMessage tempMessage = new TempMessage(target, null, messages);
+        tempMessage.setSessionKey(sessionKey);
+        return tempMessage;
+    }
+
 
 
 

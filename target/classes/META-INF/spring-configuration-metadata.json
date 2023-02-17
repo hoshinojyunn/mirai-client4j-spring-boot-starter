@@ -13,13 +13,13 @@
       "sourceType": "org.hoshino.miraiclient4j.properties.MiraiProperties"
     },
     {
-      "name": "mirai.config.qq",
-      "type": "java.lang.Long",
+      "name": "mirai.config.mirai-url",
+      "type": "java.lang.String",
       "sourceType": "org.hoshino.miraiclient4j.properties.MiraiProperties"
     },
     {
-      "name": "mirai.config.url",
-      "type": "java.lang.String",
+      "name": "mirai.config.qq",
+      "type": "java.lang.Long",
       "sourceType": "org.hoshino.miraiclient4j.properties.MiraiProperties"
     },
     {

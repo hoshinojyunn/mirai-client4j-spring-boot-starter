@@ -3,30 +3,25 @@ package org.hoshino.miraiclient4j.processor;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
 import org.hoshino.miraiclient4j.exception.MessageChainEmptyException;
-import org.hoshino.miraiclient4j.exception.MessageTypeException;
-import org.hoshino.miraiclient4j.message.baseType.BaseType;
-import org.hoshino.miraiclient4j.message.messageChainType.MessageEvent;
-import org.hoshino.miraiclient4j.utils.MessageUtil;
+import org.hoshino.miraiclient4j.message.MessageEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
-import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.LinkedList;
 
-@Service
 public class MessageProcessor implements Runnable{
     private final Logger LOGGER = LoggerFactory.getLogger(MessageProcessor.class);
     private LinkedList<MessageEvent>messages;
     private FriendMessageProcessor friendMessageProcessor;
-    private ThreadPoolTaskExecutor executor;
+    private GroupMessageProcessor groupMessageProcessor;
 
-    public MessageProcessor(FriendMessageProcessor friendMessageProcessor,ThreadPoolTaskExecutor executor) {
+
+    public MessageProcessor(FriendMessageProcessor friendMessageProcessor, GroupMessageProcessor groupMessageProcessor) {
         this.friendMessageProcessor = friendMessageProcessor;
-        this.executor = executor;
+        this.groupMessageProcessor = groupMessageProcessor;
         this.messages = new LinkedList<>();
-        executor.execute(this);
     }
 
 
@@ -34,29 +29,41 @@ public class MessageProcessor implements Runnable{
     public synchronized void add(MessageEvent message){
         messages.addLast(message);
     }
-
-    private void process(MessageEvent message) throws MessageChainEmptyException, MessageTypeException, InvocationTargetException, IllegalAccessException {
+    public void process(MessageEvent message) throws Exception {
         JSONArray messageChain = message.getMessageChain();
         if(messageChain==null||messageChain.isEmpty()||messageChain.size()<2)
             throw new MessageChainEmptyException();
         // 普通文字消息
         Object temp =  messageChain.get(1);
-        String[]text = JSONUtil.parseObj(temp).getStr("text").split(" ");
-        if(!text[0].startsWith("/")){
-            LOGGER.info("非命令消息:{}", text[0] + " " + text[1]);
+        String cmd = "",body = "";
+        String text = "";
+
+        text = JSONUtil.parseObj(temp).getStr("text");
+        if(StringUtils.hasText(text)){
+            String[]splits = text.split(" ");
+            if(splits.length>=2) {
+                StringBuffer sb = new StringBuffer();
+                Arrays.stream(splits).skip(1).forEach(sb::append);
+                body = sb.toString();
+            }
+            cmd = splits[0];
+        }
+
+        if(StringUtils.hasText(cmd) &&!cmd.startsWith("/")){
+            LOGGER.info("非命令消息:{}", cmd + body);
             return;
         }
-        LOGGER.info("收到命令消息:{}", text[0] + " " + text[1]);
         String type = message.getType();
+        LOGGER.info("收到命令消息:{},类型:{}", cmd + " " + body, type);
         switch (type){
             case "FriendMessage":
-                friendMessageProcessor.process(message, text[0]);
+                friendMessageProcessor.process(message, cmd);
                 break;
-            default:
+            case "GroupMessage":
+                groupMessageProcessor.process(message, cmd);
                 break;
         }
     }
-
 
     @Override
     public void run() {
@@ -65,13 +72,13 @@ public class MessageProcessor implements Runnable{
                 try {
                     Thread.sleep(200);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    LOGGER.info("MessageProcessor was interrupted");
                 }
                 continue;
             }
             try {
                 process(messages.pollFirst());
-            } catch (MessageChainEmptyException | MessageTypeException | InvocationTargetException | IllegalAccessException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
