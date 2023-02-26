@@ -5,7 +5,6 @@ import org.hoshino.miraiclient4j.bot.Bot;
 import org.hoshino.miraiclient4j.context.MiraiContext;
 import org.springframework.stereotype.Component;
 
-@Component
 public class BotFactory {
     private MiraiContext miraiContext;
     private HttpApiClient httpClient;

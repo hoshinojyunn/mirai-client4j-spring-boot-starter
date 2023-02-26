@@ -10,11 +10,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class FriendMessageProcessor implements Processor{
-    private MiraiContext context;
     private ThreadPoolTaskExecutor executor;
 
-    public FriendMessageProcessor(MiraiContext context, ThreadPoolTaskExecutor executor) {
-        this.context = context;
+    public FriendMessageProcessor(ThreadPoolTaskExecutor executor) {
         this.executor = executor;
     }
 
@@ -22,11 +20,7 @@ public class FriendMessageProcessor implements Processor{
     public void process(MessageEvent message, String cmd) throws MessageTypeException, InvocationTargetException, IllegalAccessException {
         if(!message.getType().equals("FriendMessage"))
             throw new MessageTypeException("FriendMessageProcessor can‘t process this message type");
-        Method processFunction = context.findProcessFunction(cmd).orElse(null);
-        Assert.notNull(processFunction, "can't find process function of the command");
-        Object target = context.findBeanWithMethod(processFunction).orElse(null);
-        Assert.notNull(target, "can't find the bean of the method,maybe it isn't inject to spring context");
-        Object[]args = new Object[]{message};
-        executor.execute(new TaskProxy(processFunction, target, args));
+        MessageTask task = MessageTaskBuilder.build(message, cmd);
+        executor.execute(task);
     }
 }

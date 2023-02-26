@@ -1,5 +1,6 @@
 package org.hoshino.miraiclient4j.applicationListener;
 
+import cn.hutool.core.io.IORuntimeException;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
@@ -28,46 +29,54 @@ public class ApplicationStartedListener implements ApplicationListener<Applicati
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     private MessageProcessor processor;
     private ThreadPoolTaskExecutor executor;
+    private ApplicationContextHolder applicationContextHolder;
     private MiraiContext context;
 
-    public ApplicationStartedListener(MessageProcessor processor, ThreadPoolTaskExecutor executor, MiraiContext context) {
+    public ApplicationStartedListener(MessageProcessor processor, ThreadPoolTaskExecutor executor, ApplicationContextHolder applicationContextHolder, MiraiContext context) {
         this.processor = processor;
         this.executor = executor;
+        this.applicationContextHolder = applicationContextHolder;
         this.context = context;
     }
 
     @Override
     public void onApplicationEvent(ApplicationStartedEvent event) {
-        try {
-            initSessionKey();
-        } catch (JSONException e) {
-            LOGGER.info("session key initialize fail...");
-        }
-        try {
-            activateSessionKey();
-        } catch (JSONException e) {
-            LOGGER.info("session key activate fail,check out your qq or network");
-        }
+        initSessionKey();
+        activateSessionKey();
         registry();
         executor.execute(processor);
         LOGGER.info("messageProcessor has been started!");
     }
-    public void initSessionKey() throws JSONException {
+    public void initSessionKey()  {
         JSONObject params = new JSONObject();
         params.set("verifyKey", context.getVerifyKey());
         // initialize: verify your qq account
-        String res = HttpUtil.post(MiraiURL.VERIFY, JSONUtil.toJsonStr(params));
-        LOGGER.info("认证，sessionKey={}", res);
+        String res = "";
+        try {
+            res = HttpUtil.post(MiraiURL.VERIFY, JSONUtil.toJsonStr(params));
+        }catch (IORuntimeException exception){
+            LOGGER.error("sessionKey init failed,have you started mirai?");
+            System.exit(-1);
+        }
+
+        LOGGER.info("certificating,sessionKey={}", res);
         // save session key
         context.setSession(JSONUtil.parseObj(res).getStr("session"));
     }
 
-    public void activateSessionKey() throws JSONException {
+    public void activateSessionKey() {
         JSONObject params = new JSONObject();
         params.set("sessionKey", context.getSession());
         params.set("qq", context.getQq());
-        String res = HttpUtil.post(MiraiURL.BIND, JSONUtil.toJsonStr(params));
-        LOGGER.info("绑定:{}", res);
+        String res = "";
+        try {
+            res = HttpUtil.post(MiraiURL.BIND, JSONUtil.toJsonStr(params));
+        }catch (IORuntimeException exception){
+            LOGGER.error("activate sessionKey failed,have you started mirai?");
+            System.exit(-1);
+        }
+
+        LOGGER.info("bind:{}", res);
     }
 
     // 扫描容器中所有标记有CommandListener的类 将类中OnCommand标记的方法与其bean初始化到miraiContext

@@ -72,7 +72,7 @@ public class MessageProcessor implements Runnable{
                 try {
                     Thread.sleep(200);
                 } catch (InterruptedException e) {
-                    LOGGER.info("MessageProcessor was interrupted");
+                    LOGGER.warn("MessageProcessor was interrupted");
                 }
                 continue;
             }

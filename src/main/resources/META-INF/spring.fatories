@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.hoshino.miraiclient4j.autoConfig.MiraiAutoConfiguration

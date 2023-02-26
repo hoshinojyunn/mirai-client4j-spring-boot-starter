@@ -12,3 +12,5 @@
 *.class
 /.idea/
 /target/
+/src/main/resources/application.yml
+/src/test/

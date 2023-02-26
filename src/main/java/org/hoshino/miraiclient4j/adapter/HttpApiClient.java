@@ -1,6 +1,7 @@
 package org.hoshino.miraiclient4j.adapter;
 
 
+import cn.hutool.core.lang.hash.Hash;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
@@ -132,17 +133,20 @@ public class HttpApiClient extends HttpApi {
 
     @Override
     public R<JSONObject> about() {
-        return null;
+        return HttpApiUtil.get(MiraiURL.ABOUT);
     }
 
     @Override
     public R<JSONObject> botList() {
-        return null;
+        return HttpApiUtil.get(MiraiURL.BOT_LIST);
     }
 
     @Override
     public R<JSONObject> messageFromId(int messageId, Long target) {
-        return null;
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("messageId", messageId);
+        params.put("target", target);
+        return HttpApiUtil.get(MiraiURL.MESSAGE_FROM_ID, params);
     }
 
     @Override
@@ -152,32 +156,41 @@ public class HttpApiClient extends HttpApi {
 
     @Override
     public R<JSONObject> groupList() {
-        return null;
+        return HttpApiUtil.get(MiraiURL.GROUP_LIST);
     }
 
     @Override
     public R<JSONObject> memberList(Long target) {
-        return null;
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("target", target);
+        return HttpApiUtil.get(MiraiURL.MEMBER_LIST, params);
     }
 
     @Override
     public R<JSONObject> botProfile() {
-        return null;
+        return HttpApiUtil.get(MiraiURL.BOT_PROFILE);
     }
 
     @Override
     public R<JSONObject> friendProfile(Long target) {
-        return null;
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("target",target);
+        return HttpApiUtil.get(MiraiURL.FRIEND_PROFILE, params);
     }
 
     @Override
     public R<JSONObject> memberProfile(Long target, Long memberId) {
-        return null;
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("target", target);
+        params.put("memberId", memberId);
+        return HttpApiUtil.get(MiraiURL.MEMBER_PROFILE, params);
     }
 
     @Override
     public R<JSONObject> userProfile(Long target) {
-        return null;
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("target", target);
+        return HttpApiUtil.get(MiraiURL.USER_PROFILE, params);
     }
 
     @Override

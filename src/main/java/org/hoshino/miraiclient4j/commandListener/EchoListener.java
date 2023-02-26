@@ -12,8 +12,11 @@ import javax.annotation.Resource;
 
 @CommandListener
 public class EchoListener {
-    @Resource
     private Bot bot;
+
+    public EchoListener(Bot bot) {
+        this.bot = bot;
+    }
 
     @OnCommand(command = "/echo")
     public void echo(MessageEvent message) throws Exception {

@@ -1,10 +1,8 @@
 package org.hoshino.miraiclient4j;
 
-import org.hoshino.miraiclient4j.aspect.annotation.EnableCommandProcessor;
 import org.hoshino.miraiclient4j.aspect.annotation.EnableMiraiClient4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication

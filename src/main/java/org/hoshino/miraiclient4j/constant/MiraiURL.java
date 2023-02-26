@@ -5,12 +5,24 @@ import org.springframework.beans.factory.annotation.Value;
 import javax.annotation.PostConstruct;
 
 public class MiraiURL{
+
     private static String apiAdapter;
     private static String url;
 
     public static String BASE;
     public static String VERIFY;
     public static String BIND;
+    public static String ABOUT;
+    public static String BOT_LIST;
+    public static String MESSAGE_FROM_ID;
+    public static String GROUP_LIST;
+    public static String MEMBER_LIST;
+    public static String BOT_PROFILE;
+    public static String FRIEND_PROFILE;
+    public static String MEMBER_PROFILE;
+    public static String USER_PROFILE;
+
+
     public static String SESSION_INFO;
     public static String SESSION_RELEASE;
     public static String COUNT_MESSAGE;
@@ -36,6 +48,17 @@ public class MiraiURL{
         BASE = apiAdapter + "://" + url;
         VERIFY = BASE + "/verify";
         BIND = BASE + "/bind";
+        ABOUT = BASE + "/about";
+        BOT_LIST = BASE + "/botList";
+        MESSAGE_FROM_ID = BASE + "/messageFromId";
+        GROUP_LIST = BASE + "/groupList";
+        MEMBER_LIST = BASE + "/memberList";
+        BOT_PROFILE = BASE + "/botProfile";
+        FRIEND_PROFILE = BASE + "/friendProfile";
+        MEMBER_PROFILE = BASE + "/memberProfile";
+        USER_PROFILE = BASE + "/userProfile";
+
+
         SESSION_INFO = BASE + "/sessionInfo";
         SESSION_RELEASE = BASE + "/release";
         COUNT_MESSAGE = BASE + "/countMessage";
