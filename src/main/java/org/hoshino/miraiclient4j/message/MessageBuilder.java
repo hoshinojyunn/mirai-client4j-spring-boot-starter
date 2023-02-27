@@ -1,13 +1,8 @@
 package org.hoshino.miraiclient4j.message;
 
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
 import org.hoshino.miraiclient4j.context.ApplicationContextHolder;
 import org.hoshino.miraiclient4j.context.MiraiContext;
-import org.hoshino.miraiclient4j.message.messageRequest.CommonMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.GroupMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.TempMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.request.*;
 import org.springframework.util.Assert;
 
 public class MessageBuilder {
@@ -43,6 +38,23 @@ public class MessageBuilder {
         tempMessage.setSessionKey(sessionKey);
         return tempMessage;
     }
+
+    public static NudgeMessage buildNudgeMessage(Long target, Long subject, String kind){
+        NudgeMessage nudgeMessage = new NudgeMessage(target, subject, kind);
+        nudgeMessage.setSessionKey(sessionKey);
+        return nudgeMessage;
+    }
+
+    public static RecallMessage buildRecallMessage(Long target, Integer messageId){
+        RecallMessage recallMessage = new RecallMessage(target, messageId);
+        recallMessage.setSessionKey(sessionKey);
+        return recallMessage;
+    }
+
+
+
+
+
 
 
 

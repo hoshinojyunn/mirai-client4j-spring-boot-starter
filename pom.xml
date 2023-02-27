@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.hoshino</groupId>
-    <artifactId>mirai-client4j</artifactId>
+    <artifactId>mirai-client4j-spring-boot-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

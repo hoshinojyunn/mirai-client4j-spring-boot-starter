@@ -6,9 +6,9 @@ import org.hoshino.miraiclient4j.message.MessageBuilder;
 import org.hoshino.miraiclient4j.message.MessageChain;
 import org.hoshino.miraiclient4j.message.baseType.BaseType;
 import org.hoshino.miraiclient4j.message.MessageEvent;
-import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.GroupMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.TempMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.request.FriendMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.request.GroupMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.request.TempMessage;
 import org.hoshino.miraiclient4j.utils.MessageUtil;
 
 public class Bot implements Action{

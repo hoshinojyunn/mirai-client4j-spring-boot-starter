@@ -1,7 +1,6 @@
 package org.hoshino.miraiclient4j.adapter;
 
 
-import cn.hutool.core.lang.hash.Hash;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
@@ -9,9 +8,7 @@ import org.hoshino.miraiclient4j.adapter.api.HttpApi;
 import org.hoshino.miraiclient4j.constant.MiraiURL;
 import org.hoshino.miraiclient4j.context.ApplicationContextHolder;
 import org.hoshino.miraiclient4j.context.MiraiContext;
-import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.GroupMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.TempMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.request.*;
 import org.hoshino.miraiclient4j.utils.R;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.core.io.FileSystemResource;
@@ -206,5 +203,20 @@ public class HttpApiClient extends HttpApi {
     @Override
     public R<JSONObject> sendTempMessage(TempMessage message) {
         return HttpApiUtil.post(MiraiURL.SEND_TEMP_MESSAGE, JSONUtil.toJsonStr(message));
+    }
+
+    @Override
+    public R<JSONObject> sendNudge(NudgeMessage nudgeMessage) {
+        return HttpApiUtil.post(MiraiURL.SEND_NUDGE, JSONUtil.toJsonStr(nudgeMessage));
+    }
+
+    @Override
+    public R<JSONObject> recall(RecallMessage recallMessage) {
+        return HttpApiUtil.post(MiraiURL.RECALL, JSONUtil.toJsonStr(recallMessage));
+    }
+
+    @Override
+    public R<JSONObject> roamingMessages(RoamingMessage roamingMessage) {
+        return HttpApiUtil.post(MiraiURL.ROAMING_MESSAGES, JSONUtil.toJsonStr(roamingMessage));
     }
 }

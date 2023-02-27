@@ -1,24 +1,21 @@
 package org.hoshino.miraiclient4j.adapter.api;
 
 import cn.hutool.json.JSONObject;
-import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.GroupMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.TempMessage;
 import org.hoshino.miraiclient4j.utils.R;
 
 import java.io.File;
 
 public abstract class HttpApi implements CommonApi{
-    public abstract R<JSONObject> getSessionInfo();
-    public abstract R<JSONObject> releaseSession(Long qq);
-    public abstract R<JSONObject> countMessage();
+    public R<JSONObject> getSessionInfo(){return null;}
+    public R<JSONObject> releaseSession(Long qq){return null;}
+    public R<JSONObject> countMessage(){return null;}
     // 按时间顺序获取消息获取 count指获取消息的条数
-    public abstract R<JSONObject> fetchMessage(int count);
+    public R<JSONObject> fetchMessage(int count){return null;}
     // 获取最新的消息
-    public abstract R<JSONObject> fetchLatestMessage(int count);
+    public R<JSONObject> fetchLatestMessage(int count){return null;}
     // 按时间顺序获取消息获取 但是不从队列中删除
-    public abstract R<JSONObject> peekMessage(int count);
-    public abstract R<JSONObject> peekLatestMessage(int count);
+    public R<JSONObject> peekMessage(int count){return null;}
+    public R<JSONObject> peekLatestMessage(int count){return null;}
 
     /**
      * 上传图片文件到服务器 post请求 参数格式multipart/form-data
@@ -26,7 +23,7 @@ public abstract class HttpApi implements CommonApi{
      * @param img 图片文件
      * @return
      */
-    public abstract R<JSONObject> uploadImage(String type, File img);
+    public R<JSONObject> uploadImage(String type, File img){return null;}
 
     /**
      *上传音频文件到服务器 post请求 参数格式multipart/form-data
@@ -34,7 +31,7 @@ public abstract class HttpApi implements CommonApi{
      * @param voice 声音文件
      * @return
      */
-    public abstract R<JSONObject> uploadVoice(String type, File voice);
+    public R<JSONObject> uploadVoice(String type, File voice){return null;}
 
     /**
      * 上传群文件 post请求 参数格式multipart/form-data
@@ -44,7 +41,7 @@ public abstract class HttpApi implements CommonApi{
      * @param file 上传的文件
      * @return
      */
-    public abstract R<JSONObject> fileUpload(String type, Long target, String path, File file);
+    public R<JSONObject> fileUpload(String type, Long target, String path, File file){return null;}
 
 
 }

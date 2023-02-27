@@ -1,8 +1,10 @@
-package org.hoshino.miraiclient4j.message.messageRequest;
+package org.hoshino.miraiclient4j.message.messageRequest.request;
 
 import org.hoshino.miraiclient4j.message.MessageChain;
+import org.hoshino.miraiclient4j.message.messageRequest.Message;
+import org.hoshino.miraiclient4j.message.messageRequest.SessionKey;
 
-public class TempMessage extends SessionKey implements Message{
+public class TempMessage extends SessionKey implements Message {
     private Long qq;
     private Long group;
     private MessageChain messageChain;

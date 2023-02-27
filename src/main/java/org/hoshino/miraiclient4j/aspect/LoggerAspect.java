@@ -15,6 +15,7 @@ import java.util.Arrays;
 @Component
 public class LoggerAspect {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+
     @Around("@annotation(onCommand)")
     public Object logAdvice(ProceedingJoinPoint pjp, OnCommand onCommand){
         Object[] args = pjp.getArgs();

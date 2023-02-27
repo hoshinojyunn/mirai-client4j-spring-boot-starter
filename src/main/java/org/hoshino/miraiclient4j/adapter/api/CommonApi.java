@@ -1,9 +1,7 @@
 package org.hoshino.miraiclient4j.adapter.api;
 
 import cn.hutool.json.JSONObject;
-import org.hoshino.miraiclient4j.message.messageRequest.FriendMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.GroupMessage;
-import org.hoshino.miraiclient4j.message.messageRequest.TempMessage;
+import org.hoshino.miraiclient4j.message.messageRequest.request.*;
 import org.hoshino.miraiclient4j.utils.R;
 
 public interface CommonApi {
@@ -124,28 +122,28 @@ public interface CommonApi {
 
     /**
      * /sendNudge [POST]
-     * @param groupMessage
+     * @param nudgeMessage
      * @return
      */
-    default R<JSONObject> sendNudge(GroupMessage groupMessage){
+    default R<JSONObject> sendNudge(NudgeMessage nudgeMessage){
         return null;
     }
 
     /**
      * /recall [POST]
-     * @param groupMessage
+     * @param recallMessage
      * @return
      */
-    default R<JSONObject> recall(GroupMessage groupMessage){
+    default R<JSONObject> recall(RecallMessage recallMessage){
         return null;
     }
 
     /**
      * /roamingMessages [POST]
-     * @param groupMessage
+     * @param roamingMessage
      * @return
      */
-    default R<JSONObject> roamingMessages(GroupMessage groupMessage){
+    default R<JSONObject> roamingMessages(RoamingMessage roamingMessage){
         return null;
     }
 
