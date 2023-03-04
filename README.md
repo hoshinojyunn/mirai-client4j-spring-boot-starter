@@ -1,4 +1,6 @@
 ![java](https://img.shields.io/badge/JAVA-1.8+-green.svg)
+
+稳定版请查看main分支
 # 简介
 ​	mirai-client4j是一个简易的基于mah(mirai-api-http)的mirai客户端开发框架，用于快速开发基于mirai的qq机器人。目前只支持http+webhook的方式实现事件处理功能，后续可能会逐步完善适配各种不同的模式。
 ​	如果你还不了解mirai生态，可以通过以下链接了解：
