@@ -6,9 +6,7 @@ import org.hoshino.miraiclient4j.bot.Bot;
 import org.hoshino.miraiclient4j.message.MessageChain;
 import org.hoshino.miraiclient4j.message.baseType.Plain;
 import org.hoshino.miraiclient4j.message.MessageEvent;
-import org.hoshino.miraiclient4j.utils.MessageUtil;
-
-import javax.annotation.Resource;
+import org.hoshino.miraiclient4j.utils.MessageTemplate;
 
 @CommandListener
 public class EchoListener {
@@ -20,8 +18,8 @@ public class EchoListener {
 
     @OnCommand(command = "/echo")
     public void echo(MessageEvent message) throws Exception {
-        String body = MessageUtil.parseBody(message);
-        MessageChain messageChain = new MessageChain().append(new Plain(body));
-        bot.send(message, messageChain);
+        String body = MessageTemplate.parseBody(message);
+        MessageChain messageChain = new MessageChain().appendLast(new Plain(body));
+        bot.send(message, messageChain, true);
     }
 }

@@ -29,6 +29,7 @@ public class MessageProcessor implements Runnable{
     public synchronized void add(MessageEvent message){
         messages.addLast(message);
     }
+
     public void process(MessageEvent message) throws Exception {
         JSONArray messageChain = message.getMessageChain();
         if(messageChain==null||messageChain.isEmpty()||messageChain.size()<2)
@@ -41,6 +42,7 @@ public class MessageProcessor implements Runnable{
         text = JSONUtil.parseObj(temp).getStr("text");
         if(StringUtils.hasText(text)){
             String[]splits = text.split(" ");
+            // 拼接命令后的内容
             if(splits.length>=2) {
                 StringBuffer sb = new StringBuffer();
                 Arrays.stream(splits).skip(1).forEach(sb::append);

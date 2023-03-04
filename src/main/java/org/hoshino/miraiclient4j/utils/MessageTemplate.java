@@ -7,7 +7,7 @@ import org.hoshino.miraiclient4j.message.MessageEvent;
 
 import java.util.Arrays;
 
-public class MessageUtil {
+public class MessageTemplate {
 
     public static String parseCmd(MessageEvent message){
         JSONArray messageChain = message.getMessageChain();
@@ -59,6 +59,11 @@ public class MessageUtil {
     public static String getSenderNickName(MessageEvent messageEvent){
         JSONObject sender = messageEvent.getSender();
         return sender.getStr("nickname");
+    }
+
+    public static String getSenderName(MessageEvent messageEvent){
+        JSONObject sender = messageEvent.getSender();
+        return sender.getStr("memberName");
     }
 
     public static String getMessageType(MessageEvent messageEvent){

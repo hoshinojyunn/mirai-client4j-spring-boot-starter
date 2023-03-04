@@ -18,7 +18,7 @@ public class ImageListener {
     @OnCommand(command = "/image")
     public void sendImage(MessageEvent event){
         MessageChain messageChain = new MessageChain();
-        messageChain.append(new Plain("你要的图片")).append(new Image("https://tse1-mm.cn.bing.net/th/id/OIP-C.YKoZzgmubNBxQ8j-mmoTKAHaEK?pid=ImgDet&rs=1"));
-        bot.send(event, messageChain);
+        messageChain.appendLast(new Plain("你要的图片")).appendLast(new Image("https://tse1-mm.cn.bing.net/th/id/OIP-C.YKoZzgmubNBxQ8j-mmoTKAHaEK?pid=ImgDet&rs=1"));
+        bot.send(event, messageChain, false);
     }
 }

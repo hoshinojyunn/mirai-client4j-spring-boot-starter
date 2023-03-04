@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 @Aspect
-@Component
 public class LoggerAspect {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 

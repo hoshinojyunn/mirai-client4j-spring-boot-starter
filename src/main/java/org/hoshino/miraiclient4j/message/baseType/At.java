@@ -2,12 +2,11 @@ package org.hoshino.miraiclient4j.message.baseType;
 
 public class At extends AbstractType implements BaseType {
     private Long target;
-    private String display;
+//    private String display;
 
-    public At(Long target, String display) {
+    public At(Long target) {
         super.setType("At");
         this.target = target;
-        this.display = display;
     }
 
     public Long getTarget() {
@@ -18,12 +17,12 @@ public class At extends AbstractType implements BaseType {
         this.target = target;
     }
 
-    public String getDisplay() {
-        return display;
-    }
-
-    public void setDisplay(String display) {
-        this.display = display;
-    }
+//    public String getDisplay() {
+//        return display;
+//    }
+//
+//    public void setDisplay(String display) {
+//        this.display = display;
+//    }
 
 }

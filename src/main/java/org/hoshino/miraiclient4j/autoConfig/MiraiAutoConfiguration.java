@@ -1,14 +1,13 @@
 package org.hoshino.miraiclient4j.autoConfig;
 
 import org.hoshino.miraiclient4j.adapter.HttpApiClient;
-import org.hoshino.miraiclient4j.applicationListener.ApplicationShutdownListener;
-import org.hoshino.miraiclient4j.applicationListener.ApplicationStartedListener;
+import org.hoshino.miraiclient4j.aspect.LoggerAspect;
 import org.hoshino.miraiclient4j.aspect.annotation.EnableMiraiClient4j;
-import org.hoshino.miraiclient4j.bot.Bot;
+import org.hoshino.miraiclient4j.config.ApplicationConfiguration;
+import org.hoshino.miraiclient4j.config.BotInitConfiguration;
 import org.hoshino.miraiclient4j.constant.MiraiURL;
 import org.hoshino.miraiclient4j.context.ApplicationContextHolder;
 import org.hoshino.miraiclient4j.context.MiraiContext;
-import org.hoshino.miraiclient4j.factory.BotFactory;
 import org.hoshino.miraiclient4j.processor.FriendMessageProcessor;
 import org.hoshino.miraiclient4j.processor.GroupMessageProcessor;
 import org.hoshino.miraiclient4j.processor.MessageProcessor;
@@ -16,8 +15,7 @@ import org.hoshino.miraiclient4j.properties.MiraiProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -28,7 +26,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.concurrent.ThreadPoolExecutor;
 
-@AutoConfiguration
+@Configuration
+@EnableConfigurationProperties({MiraiProperties.class})
 public class MiraiAutoConfiguration {
 
     @Configuration
@@ -42,25 +41,6 @@ public class MiraiAutoConfiguration {
         @ConditionalOnProperty(prefix = "mirai.config", name = "api-adapter", havingValue = "http")
         public HttpApiClient httpApiClient(){
             return new HttpApiClient();
-        }
-
-    }
-
-    @Configuration
-    static public class ApplicationConfiguration {
-
-        @Bean
-        public ApplicationContextHolder applicationContextHolder(){
-            return new ApplicationContextHolder();
-        }
-
-        @Bean
-        public ApplicationStartedListener applicationStartedListener(MessageProcessor processor, ThreadPoolTaskExecutor executor, ApplicationContextHolder applicationContextHolder, MiraiContext context){
-            return new ApplicationStartedListener(processor, executor, applicationContextHolder, context);
-        }
-        @Bean
-        public ApplicationShutdownListener applicationShutdownListener(HttpApiClient httpApiClient, MiraiContext context){
-            return new ApplicationShutdownListener(httpApiClient, context);
         }
 
     }
@@ -93,13 +73,17 @@ public class MiraiAutoConfiguration {
     }
 
     @Configuration
-    @EnableConfigurationProperties(MiraiProperties.class)
     static public class MiraiContextConfiguration {
         private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
         @Bean
         public MiraiURL miraiURL(){
             return new MiraiURL();
+        }
+
+        @Bean
+        public ApplicationContextHolder applicationContextHolder(){
+            return new ApplicationContextHolder();
         }
 
         @Bean
@@ -130,5 +114,13 @@ public class MiraiAutoConfiguration {
             return threadPoolTaskExecutor;
         }
 
+    }
+
+    @Configuration
+    static public class AspectConfiguration{
+        @Bean
+        public LoggerAspect loggerAspect(){
+            return new LoggerAspect();
+        }
     }
 }

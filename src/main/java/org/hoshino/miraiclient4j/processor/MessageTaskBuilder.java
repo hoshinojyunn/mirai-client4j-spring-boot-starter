@@ -1,6 +1,7 @@
 package org.hoshino.miraiclient4j.processor;
 
 
+import org.hoshino.miraiclient4j.aspect.annotation.OnCommand;
 import org.hoshino.miraiclient4j.context.ApplicationContextHolder;
 import org.hoshino.miraiclient4j.context.MiraiContext;
 import org.hoshino.miraiclient4j.message.MessageEvent;
@@ -22,4 +23,5 @@ public class MessageTaskBuilder {
         Object[]args = new Object[]{event};
         return new MessageTask(processFunction, target,args);
     }
+
 }
