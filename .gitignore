@@ -14,5 +14,5 @@
 /target/
 /src/main/resources/application.yml
 /src/test/
-/src/main/java/org/hoshino/miraiclient4j/zTest/MiraiClient4jApplication.java
+/src/main/java/io/github/hoshinojyunn/miraiclient4j/zTest/MiraiClient4jApplication.java
 
