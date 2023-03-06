@@ -2,7 +2,6 @@ package io.github.hoshinojyunn.miraiclient4j.adapter.api;
 
 import cn.hutool.json.JSONObject;
 import io.github.hoshinojyunn.miraiclient4j.message.messageRequest.request.*;
-import org.hoshino.miraiclient4j.message.messageRequest.request.*;
 import io.github.hoshinojyunn.miraiclient4j.utils.R;
 
 public interface CommonApi {

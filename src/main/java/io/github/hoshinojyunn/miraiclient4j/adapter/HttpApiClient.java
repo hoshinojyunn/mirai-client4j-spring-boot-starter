@@ -9,7 +9,6 @@ import io.github.hoshinojyunn.miraiclient4j.adapter.api.HttpApi;
 import io.github.hoshinojyunn.miraiclient4j.constant.MiraiURL;
 import io.github.hoshinojyunn.miraiclient4j.context.MiraiContext;
 import io.github.hoshinojyunn.miraiclient4j.message.messageRequest.request.*;
-import org.hoshino.miraiclient4j.message.messageRequest.request.*;
 import io.github.hoshinojyunn.miraiclient4j.utils.R;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.core.io.FileSystemResource;

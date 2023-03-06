@@ -111,7 +111,7 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>src/main/java</directory>
+                        <directory>src/main/resources</directory>
                         <excludes>
                             <exclude>**/*.yml</exclude>
                         </excludes>

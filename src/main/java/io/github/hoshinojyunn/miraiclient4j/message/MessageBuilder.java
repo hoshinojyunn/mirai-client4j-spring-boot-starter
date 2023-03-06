@@ -3,7 +3,6 @@ package io.github.hoshinojyunn.miraiclient4j.message;
 import io.github.hoshinojyunn.miraiclient4j.context.ApplicationContextHolder;
 import io.github.hoshinojyunn.miraiclient4j.context.MiraiContext;
 import io.github.hoshinojyunn.miraiclient4j.message.messageRequest.request.*;
-import org.hoshino.miraiclient4j.message.messageRequest.request.*;
 import org.springframework.util.Assert;
 
 public class MessageBuilder {
