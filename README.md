@@ -41,8 +41,17 @@ adapterSettings:
 
 
 # 快速开始
-
-​	通过以下片段在maven中引入mirai-client4j的springboot启动器：
+目前mirai-client4j暂时处于开发阶段，还没有发布版本，但是这并不妨碍您快速体验一下mirai-client4j的方便快捷。
+由于没有发布版本，您首先得在maven的pom.xml中添加快照仓库:
+```xml
+<repositories>
+    <repository>
+        <id>nexus-snapshots</id>
+        <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+</repositories>
+```
+​	随后通过以下片段在maven中引入mirai-client4j的springboot启动器:
 
 ```xml
 <dependency>
