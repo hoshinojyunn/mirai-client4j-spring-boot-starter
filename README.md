@@ -55,9 +55,9 @@ adapterSettings:
 
 ```xml
 <dependency>
-    <groupId>org.hoshino</groupId>
+    <groupId>io.github.hoshinojyunn</groupId>
     <artifactId>mirai-client4j-spring-boot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -67,7 +67,7 @@ adapterSettings:
 mirai:
   config:
     # bot的qq
-    qq: 702442896
+    qq: xxxxxxxx
     # mirai监听的url
     mirai-url: localhost:8080
     # mirai中配置的verifyKey
