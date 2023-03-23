@@ -93,6 +93,7 @@ public class ApplicationStartedListener implements ApplicationListener<Applicati
                 OnCommand onCommand = null;
                 // 找到带OnCommand注解的方法
                 if(method!=null&&(onCommand = AnnotationUtils.findAnnotation(method, OnCommand.class))!=null){
+                    LOGGER.info("register method:{}, command:{}", method.getName(), onCommand.command());
                     processMethods.put(onCommand.command(), method);
                     methodBeans.put(method,applicationContext.getBean(method.getDeclaringClass()));
                 }

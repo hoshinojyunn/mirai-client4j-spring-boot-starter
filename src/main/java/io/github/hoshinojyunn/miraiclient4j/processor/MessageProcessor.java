@@ -6,14 +6,19 @@ import io.github.hoshinojyunn.miraiclient4j.message.MessageEvent;
 import io.github.hoshinojyunn.miraiclient4j.exception.MessageChainEmptyException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 public class MessageProcessor implements Runnable{
     private final Logger LOGGER = LoggerFactory.getLogger(MessageProcessor.class);
-    private LinkedList<MessageEvent>messages;
+    private LinkedBlockingQueue<MessageEvent> messages;
     private FriendMessageProcessor friendMessageProcessor;
     private GroupMessageProcessor groupMessageProcessor;
 
@@ -21,13 +26,13 @@ public class MessageProcessor implements Runnable{
     public MessageProcessor(FriendMessageProcessor friendMessageProcessor, GroupMessageProcessor groupMessageProcessor) {
         this.friendMessageProcessor = friendMessageProcessor;
         this.groupMessageProcessor = groupMessageProcessor;
-        this.messages = new LinkedList<>();
+        this.messages = new LinkedBlockingQueue<>(1024 * 1024);
     }
 
 
     // 如果webhook开放多个接口可能会产生锁竞争
-    public synchronized void add(MessageEvent message){
-        messages.addLast(message);
+    public void add(MessageEvent message){
+        messages.offer(message);
     }
 
     public void process(MessageEvent message) throws Exception {
@@ -70,16 +75,10 @@ public class MessageProcessor implements Runnable{
     @Override
     public void run() {
         while(true){
-            if(messages.isEmpty()){
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    LOGGER.warn("MessageProcessor was interrupted");
-                }
-                continue;
-            }
             try {
-                process(messages.pollFirst());
+                MessageEvent event = messages.take();
+                Assert.notNull(event, "消息事件不能为null");
+                process(event);
             } catch (Exception e) {
                 e.printStackTrace();
             }
